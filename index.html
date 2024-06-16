@@ -19,7 +19,7 @@
             width: 80%;
         }
 
-        button {
+        button, #send-command-btn {
             padding: 10px 20px;
             cursor: pointer;
             margin: 10px;
@@ -34,6 +34,12 @@
             background: #f0f0f0;
             border: 1px solid #ccc;
             padding: 10px;
+        }
+
+        #command-input {
+            width: 70%;
+            padding: 10px;
+            margin: 10px;
         }
     </style>
 </head>
@@ -68,6 +74,8 @@
         <div id="commands">
             <h3>Serial Monitor</h3>
             <pre id="command-output">Loading...</pre>
+            <input type="text" id="command-input" placeholder="Enter command">
+            <button id="send-command-btn" onclick="sendCustomCommand()">Send Command</button>
         </div>
     </div>
 
@@ -115,13 +123,26 @@
             document.getElementById('command-output').innerText = output || 'No commands executed yet.';
         }
 
-        // Send command to Firebase
+        // Send predefined command to Firebase
         function sendCommand(command) {
             const commandsRef = db.ref('/commands');
             commandsRef.push({
                 command: command,
                 timestamp: new Date().toISOString()
             });
+        }
+
+        // Send custom command to Firebase
+        function sendCustomCommand() {
+            const command = document.getElementById('command-input').value;
+            if (command) {
+                const commandsRef = db.ref('/commands');
+                commandsRef.push({
+                    command: command,
+                    timestamp: new Date().toISOString()
+                });
+                document.getElementById('command-input').value = ''; // Clear the input field
+            }
         }
 
         // Set up Firebase listeners
