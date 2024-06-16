@@ -130,6 +130,7 @@
                 command: command,
                 timestamp: new Date().toISOString()
             });
+            updateLocalCommandOutput(command);
         }
 
         // Send custom command to Firebase
@@ -141,8 +142,15 @@
                     command: command,
                     timestamp: new Date().toISOString()
                 });
+                updateLocalCommandOutput(command);
                 document.getElementById('command-input').value = ''; // Clear the input field
             }
+        }
+
+        // Update local command output
+        function updateLocalCommandOutput(command) {
+            const commandOutput = document.getElementById('command-output');
+            commandOutput.innerText += `You: ${command}\n`;
         }
 
         // Set up Firebase listeners
@@ -151,6 +159,13 @@
 
         const commandOutputRef = db.ref('/commandOutput');
         commandOutputRef.on('value', updateCommandOutput);
+
+        // Add event listener for Enter key press on the command input field
+        document.getElementById('command-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendCustomCommand();
+            }
+        });
     </script>
 </body>
 </html>
