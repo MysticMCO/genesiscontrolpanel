@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Genesis Control Panel</title>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
@@ -13,7 +15,7 @@
         <h1>Green Genesis Control Panel</h1>
     </header>
     <div id="main-screen">
-        <div id="sensor-readings" class="section">
+        <section id="sensor-readings" class="section">
             <h2>Live Sensor Data</h2>
             <div class="sensor-data">
                 <p><i class="fas fa-thermometer-half"></i> Temperature: <span id="temp">Loading...</span>°C</p>
@@ -27,9 +29,9 @@
                 <p><i class="fas fa-smog"></i> CO2: <span id="co2">Loading...</span> ppm</p>
                 <p><i class="fas fa-sun"></i> Light Intensity: <span id="lux">Loading...</span> lux</p>
             </div>
-        </div>
+        </section>
 
-        <div id="control-panel" class="section">
+        <section id="control-panel" class="section">
             <h2>Control Panel</h2>
             <div class="controls">
                 <button onclick="sendCommand('FAN_ON')"><i class="fas fa-fan"></i> Turn Fan On</button>
@@ -41,25 +43,25 @@
                 <button onclick="sendCommand('LED_ON')"><i class="fas fa-lightbulb"></i> Turn LED On</button>
                 <button onclick="sendCommand('LED_OFF')"><i class="fas fa-lightbulb"></i> Turn LED Off</button>
             </div>
-        </div>
+        </section>
 
-        <div id="alert-dashboard" class="section">
+        <section id="alert-dashboard" class="section">
             <h2>Alert Dashboard</h2>
             <div id="alerts" class="alerts">No alerts</div>
-        </div>
+        </section>
 
-        <div id="command-panel" class="section">
+        <section id="command-panel" class="section">
             <h2>Command Console</h2>
             <pre id="command-output">Loading...</pre>
             <input type="text" id="command-input" placeholder="Enter command">
             <button id="send-command-btn" onclick="sendCustomCommand()"><i class="fas fa-paper-plane"></i> Send Command</button>
-        </div>
+        </section>
 
-        <div id="settings" class="section">
+        <section id="settings" class="section">
             <h2>Settings</h2>
             <p>Set thresholds and notification preferences here.</p>
             <!-- Add forms or inputs for settings -->
-        </div>
+        </section>
     </div>
 
     <script src="app.js"></script>
