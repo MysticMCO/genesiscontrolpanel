@@ -11,33 +11,37 @@
         <h1>Green Genesis Control Panel</h1>
         <div id="sensor-readings" class="section">
             <h2>Live Sensor Data</h2>
-            <p>Temperature: <span id="temp">Loading...</span>°C</p>
-            <p>Humidity: <span id="humidity">Loading...</span>%</p>
-            <p>Soil Moisture: <span id="soilMoisture">Loading...</span></p>
-            <p>Water Level: <span id="waterLevel">Loading...</span></p>
-            <p>pH: <span id="ph">Loading...</span></p>
-            <p>Nitrogen: <span id="nitrogen">Loading...</span></p>
-            <p>Phosphorus: <span id="phosphorus">Loading...</span></p>
-            <p>Potassium: <span id="potassium">Loading...</span></p>
-            <p>CO2: <span id="co2">Loading...</span> ppm</p>
-            <p>Light Intensity: <span id="lux">Loading...</span> lux</p>
+            <div class="sensor-data">
+                <p>Temperature: <span id="temp">Loading...</span>°C</p>
+                <p>Humidity: <span id="humidity">Loading...</span>%</p>
+                <p>Soil Moisture: <span id="soilMoisture">Loading...</span></p>
+                <p>Water Level: <span id="waterLevel">Loading...</span></p>
+                <p>pH: <span id="ph">Loading...</span></p>
+                <p>Nitrogen: <span id="nitrogen">Loading...</span></p>
+                <p>Phosphorus: <span id="phosphorus">Loading...</span></p>
+                <p>Potassium: <span id="potassium">Loading...</span></p>
+                <p>CO2: <span id="co2">Loading...</span> ppm</p>
+                <p>Light Intensity: <span id="lux">Loading...</span> lux</p>
+            </div>
         </div>
 
         <div id="control-panel" class="section">
             <h2>Control Panel</h2>
-            <button onclick="sendCommand('FAN_ON')">Turn Fan On</button>
-            <button onclick="sendCommand('FAN_OFF')">Turn Fan Off</button>
-            <button onclick="sendCommand('HEATER_ON')">Turn Heater On</button>
-            <button onclick="sendCommand('HEATER_OFF')">Turn Heater Off</button>
-            <button onclick="sendCommand('HUMIDIFIER_ON')">Turn Humidifier On</button>
-            <button onclick="sendCommand('HUMIDIFIER_OFF')">Turn Humidifier Off</button>
-            <button onclick="sendCommand('LED_ON')">Turn LED On</button>
-            <button onclick="sendCommand('LED_OFF')">Turn LED Off</button>
+            <div class="controls">
+                <button onclick="sendCommand('FAN_ON')">Turn Fan On</button>
+                <button onclick="sendCommand('FAN_OFF')">Turn Fan Off</button>
+                <button onclick="sendCommand('HEATER_ON')">Turn Heater On</button>
+                <button onclick="sendCommand('HEATER_OFF')">Turn Heater Off</button>
+                <button onclick="sendCommand('HUMIDIFIER_ON')">Turn Humidifier On</button>
+                <button onclick="sendCommand('HUMIDIFIER_OFF')">Turn Humidifier Off</button>
+                <button onclick="sendCommand('LED_ON')">Turn LED On</button>
+                <button onclick="sendCommand('LED_OFF')">Turn LED Off</button>
+            </div>
         </div>
 
         <div id="alert-dashboard" class="section">
             <h2>Alert Dashboard</h2>
-            <div id="alerts">No alerts</div>
+            <div id="alerts" class="alerts">No alerts</div>
         </div>
 
         <div id="command-panel" class="section">
