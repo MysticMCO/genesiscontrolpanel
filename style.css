@@ -5,7 +5,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     color: #333;
 }
@@ -42,7 +42,11 @@ header h1 {
     max-width: 900px;
     width: 100%;
     margin-top: 80px;
+    margin-bottom: 20px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 h2 {
@@ -57,6 +61,12 @@ h2 {
     margin-bottom: 40px;
 }
 
+.sensor-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
 .sensor-data p, .controls button, .alerts p {
     font-size: 18px;
     margin: 10px 0;
@@ -69,12 +79,17 @@ h2 {
     color: #27ae60;
 }
 
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
 .controls button {
     background-color: #27ae60;
     color: white;
     border: none;
     padding: 12px 24px;
-    margin: 5px;
     cursor: pointer;
     border-radius: 6px;
     display: flex;
@@ -100,10 +115,15 @@ h2 {
     font-size: 16px;
 }
 
+#command-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 #command-panel input {
     width: calc(100% - 130px);
     padding: 12px;
-    margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
