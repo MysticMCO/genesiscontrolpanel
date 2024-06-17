@@ -4,38 +4,42 @@
     <title>Green Genesis Control Panel</title>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="main-screen">
+    <header>
+        <img src="path/to/green-genesis-logo.png" alt="Green Genesis Logo" class="logo">
         <h1>Green Genesis Control Panel</h1>
+    </header>
+    <div id="main-screen">
         <div id="sensor-readings" class="section">
             <h2>Live Sensor Data</h2>
             <div class="sensor-data">
-                <p>Temperature: <span id="temp">Loading...</span>°C</p>
-                <p>Humidity: <span id="humidity">Loading...</span>%</p>
-                <p>Soil Moisture: <span id="soilMoisture">Loading...</span></p>
-                <p>Water Level: <span id="waterLevel">Loading...</span></p>
-                <p>pH: <span id="ph">Loading...</span></p>
-                <p>Nitrogen: <span id="nitrogen">Loading...</span></p>
-                <p>Phosphorus: <span id="phosphorus">Loading...</span></p>
-                <p>Potassium: <span id="potassium">Loading...</span></p>
-                <p>CO2: <span id="co2">Loading...</span> ppm</p>
-                <p>Light Intensity: <span id="lux">Loading...</span> lux</p>
+                <p><i class="fas fa-thermometer-half"></i> Temperature: <span id="temp">Loading...</span>°C</p>
+                <p><i class="fas fa-tint"></i> Humidity: <span id="humidity">Loading...</span>%</p>
+                <p><i class="fas fa-seedling"></i> Soil Moisture: <span id="soilMoisture">Loading...</span></p>
+                <p><i class="fas fa-water"></i> Water Level: <span id="waterLevel">Loading...</span></p>
+                <p><i class="fas fa-vial"></i> pH: <span id="ph">Loading...</span></p>
+                <p><i class="fas fa-leaf"></i> Nitrogen: <span id="nitrogen">Loading...</span></p>
+                <p><i class="fas fa-leaf"></i> Phosphorus: <span id="phosphorus">Loading...</span></p>
+                <p><i class="fas fa-leaf"></i> Potassium: <span id="potassium">Loading...</span></p>
+                <p><i class="fas fa-smog"></i> CO2: <span id="co2">Loading...</span> ppm</p>
+                <p><i class="fas fa-sun"></i> Light Intensity: <span id="lux">Loading...</span> lux</p>
             </div>
         </div>
 
         <div id="control-panel" class="section">
             <h2>Control Panel</h2>
             <div class="controls">
-                <button onclick="sendCommand('FAN_ON')">Turn Fan On</button>
-                <button onclick="sendCommand('FAN_OFF')">Turn Fan Off</button>
-                <button onclick="sendCommand('HEATER_ON')">Turn Heater On</button>
-                <button onclick="sendCommand('HEATER_OFF')">Turn Heater Off</button>
-                <button onclick="sendCommand('HUMIDIFIER_ON')">Turn Humidifier On</button>
-                <button onclick="sendCommand('HUMIDIFIER_OFF')">Turn Humidifier Off</button>
-                <button onclick="sendCommand('LED_ON')">Turn LED On</button>
-                <button onclick="sendCommand('LED_OFF')">Turn LED Off</button>
+                <button onclick="sendCommand('FAN_ON')"><i class="fas fa-fan"></i> Turn Fan On</button>
+                <button onclick="sendCommand('FAN_OFF')"><i class="fas fa-fan"></i> Turn Fan Off</button>
+                <button onclick="sendCommand('HEATER_ON')"><i class="fas fa-fire"></i> Turn Heater On</button>
+                <button onclick="sendCommand('HEATER_OFF')"><i class="fas fa-fire"></i> Turn Heater Off</button>
+                <button onclick="sendCommand('HUMIDIFIER_ON')"><i class="fas fa-cloud-rain"></i> Turn Humidifier On</button>
+                <button onclick="sendCommand('HUMIDIFIER_OFF')"><i class="fas fa-cloud-rain"></i> Turn Humidifier Off</button>
+                <button onclick="sendCommand('LED_ON')"><i class="fas fa-lightbulb"></i> Turn LED On</button>
+                <button onclick="sendCommand('LED_OFF')"><i class="fas fa-lightbulb"></i> Turn LED Off</button>
             </div>
         </div>
 
@@ -48,7 +52,7 @@
             <h2>Command Console</h2>
             <pre id="command-output">Loading...</pre>
             <input type="text" id="command-input" placeholder="Enter command">
-            <button id="send-command-btn" onclick="sendCustomCommand()">Send Command</button>
+            <button id="send-command-btn" onclick="sendCustomCommand()"><i class="fas fa-paper-plane"></i> Send Command</button>
         </div>
 
         <div id="settings" class="section">
