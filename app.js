@@ -1,12 +1,12 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCLhWLCBZeY7zYUnoUmySgbBIfobJiyUVw",
+    apiKey: "YOUR_API_KEY",
     authDomain: "green-genesis.firebaseapp.com",
     databaseURL: "https://green-genesis-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "green-genesis",
     storageBucket: "green-genesis.appspot.com",
-    messagingSenderId: "551458600145",
-    appId: "1:551458600145:web:bd62f25b2afd6db04a01f0"
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase
