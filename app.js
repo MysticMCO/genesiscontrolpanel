@@ -27,6 +27,9 @@ function updateSensorReadings(snapshot) {
     document.getElementById('potassium').innerText = data.potassium || 'N/A';
     document.getElementById('co2').innerText = data.co2 || 'N/A';
     document.getElementById('lux').innerText = data.lux || 'N/A';
+
+    // Check for alerts
+    checkForAlerts(data);
 }
 
 // Function to update command output
@@ -97,3 +100,45 @@ document.getElementById('command-input').addEventListener('keypress', function(e
         sendCustomCommand();
     }
 });
+
+// Function to check for alerts and update the alert dashboard
+function checkForAlerts(data) {
+    const alerts = [];
+    if (data.temperature < 15 || data.temperature > 30) {
+        alerts.push('Temperature out of range!');
+    }
+    if (data.humidity < 30 || data.humidity > 70) {
+        alerts.push('Humidity out of range!');
+    }
+    if (data.soilMoisture < 300 || data.soilMoisture > 700) {
+        alerts.push('Soil moisture out of range!');
+    }
+    if (data.waterLevel < 100) {
+        alerts.push('Water level too low!');
+    }
+    if (data.pH < 5.5 || data.pH > 7.5) {
+        alerts.push('pH level out of range!');
+    }
+    if (data.nitrogen < 50 || data.nitrogen > 200) {
+        alerts.push('Nitrogen level out of range!');
+    }
+    if (data.phosphorus < 30 || data.phosphorus > 80) {
+        alerts.push('Phosphorus level out of range!');
+    }
+    if (data.potassium < 20 || data.potassium > 100) {
+        alerts.push('Potassium level out of range!');
+    }
+    if (data.co2 < 250 || data.co2 > 800) {
+        alerts.push('CO2 level out of range!');
+    }
+    if (data.lux < 1000 || data.lux > 10000) {
+        alerts.push('Light intensity out of range!');
+    }
+
+    const alertDiv = document.getElementById('alerts');
+    if (alerts.length > 0) {
+        alertDiv.innerHTML = alerts.map(alert => `<p>${alert}</p>`).join('');
+    } else {
+        alertDiv.innerHTML = '<p>No alerts</p>';
+    }
+}
